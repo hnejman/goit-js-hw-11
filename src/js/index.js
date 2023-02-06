@@ -1,38 +1,46 @@
 import Notiflix from 'notiflix';
+import simpleLightbox from 'simplelightbox';
 
 let id = 1;
 
+const canvas = document.querySelector('.container');
+
 function render(r) {
   r.forEach(element => {
-    const canvas = document.querySelector('.container');
-    const card = document.createElement('div');
-    const wrapper = document.createElement('div');
-    const picture = document.createElement('img');
-    const description = document.createElement('p');
+    const a = document.createElement("a");
+    const image = document.createElement("img");
+    a.classList.add("gallery__link");
+    a.href = element.largeImageURL;
+    a.insertAdjacentElement("afterbegin", image);
 
-    picture.src = element.webformatURL;
-    picture.alt = element.tags;
-    description.textContent = 
-    "likes: "+element.likes+
-    "views: "+element.views+
-    "comments: "+element.comments+
-    "downloads: "+element.downloads;
+    
+    image.classList.add("gallery__image");
+    image.alt = element.tags;
+    image.src=element.webformatURL;
+    // image.dataset.source = element.webformatURL;
+    canvas.insertAdjacentElement("afterbegin", a);
+    // picture.src = element.webformatURL;
+    // picture.alt = element.tags;
     // tags - wiersz z opisem obrazka. Będzie pasować do atrybutu alt.
     // likes - liczba lajków.
     // views - liczba wyświetleń.
     // comments - liczba komentarzy.
     // downloads - liczba pobrań.
-
-
-    card.classList.add('card');
-    wrapper.classList.add('card__wrapper')
-    picture.classList.add('card__picture');
-    description.classList.add('card__description');
-
-    canvas.append(card);
-    card.append(wrapper)
-    wrapper.append(picture);
-    card.append(description);
+    const lightbox = new simpleLightbox(".container .gallery__link", {
+      additionalHtml: `<span class = tag>likes: </span>
+      <span class = decription>${element.likes}</span>
+      </br>
+      <span class = tag>views: </span>
+      <span class = decription>${element.views}</span>
+      </br>
+      <span class = tag>comments: </span>
+      <span class = decription>${element.comments}</span>
+      </br>
+      <span class = tag>downloads: </span>
+      <span class = decription>${element.downloads}</span>
+      </br>`
+    });
+    console.log(lightbox);
   });
 }
 
@@ -48,6 +56,7 @@ function loadPage(id) {
     .then(r => r.json())
     .then(r => {
       render(r.hits);
+      console.log(r);
       Notiflix.Notify.success(`We have found ${r.totalHits} hits`);
     })
     .catch(error => {
