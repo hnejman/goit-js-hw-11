@@ -1,0 +1,16 @@
+.search{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    background-color: rgb(64, 86, 180);
+    align-items: center;
+    justify-content: center;
+    &__input{
+        height: 30px;
+        width: 250px;
+    }
+    &__btn{
+        height: 30px;
+        width: 30px;
+    }
+}

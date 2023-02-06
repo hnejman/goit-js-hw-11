@@ -1,0 +1,35 @@
+body{
+    justify-content: center;
+}
+
+.container{
+    width: 1080px;
+    padding: 40px 0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.card{
+    margin: 10px 10px;
+    width: 340px;
+    height: 230px;
+    border-radius: 11px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    overflow: hidden;
+    &__wrapper{
+        overflow: hidden;
+        width: 340px;
+        height: 180px;
+        border-radius: 11px 11px 0 0;
+    }
+    &__picture{
+        margin: 0;
+        width: 340px;
+    }
+    &__description{
+        background-color: #69f;
+        margin: 0;
+        padding: 3px;
+    }
+}
