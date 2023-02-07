@@ -1,16 +1,20 @@
 import Notiflix from 'notiflix';
+import simpleLightbox from 'simplelightbox';
 
 let id = 1;
+const refresh = document.querySelector('.refresh');
 
 function render(r) {
   r.forEach(element => {
-    const canvas = document.querySelector('.container');
+    const canvas = document.querySelector('.gallery');
     const card = document.createElement('div');
     const wrapper = document.createElement('div');
+    const link = document.createElement('a');
     const picture = document.createElement('img');
     const description = document.createElement('p');
 
     picture.src = element.webformatURL;
+    link.href = element.webformatURL;
     picture.alt = element.tags;
     description.textContent = 
     "likes: "+element.likes+
@@ -24,15 +28,21 @@ function render(r) {
     // downloads - liczba pobrań.
 
 
-    card.classList.add('card');
-    wrapper.classList.add('card__wrapper')
-    picture.classList.add('card__picture');
-    description.classList.add('card__description');
+    card.classList.add('gallery__card');
+    link.classList.add('gallery__link');
+    wrapper.classList.add('gallery__wrapper');
+    picture.classList.add('gallery__picture');
+    description.classList.add('gallery__description');
 
     canvas.append(card);
-    card.append(wrapper)
+    card.append(link);
+    link.append(wrapper);
     wrapper.append(picture);
     card.append(description);
+  });
+  const lightbox = new simpleLightbox('.container a');
+  lightbox.on('error.simplelightbox', function (e) {
+    console.log(e);
   });
 }
 
@@ -58,6 +68,7 @@ function loadPage(id) {
 
 const form = document.querySelector('.search');
 form.addEventListener('submit', e => {
+  refresh.classList.remove("invisible");
   e.preventDefault();
   loadPage(id);
   id = id + 1;
@@ -65,9 +76,7 @@ form.addEventListener('submit', e => {
 
 //infinity scroll
 
-document.addEventListener('scroll', ev => {
-  if (window.scrollY >= document.documentElement.scrollHeight * 0.7) {
+refresh.addEventListener('click', ev => {
     loadPage(id);
     id = id + 1;
-  }
 });

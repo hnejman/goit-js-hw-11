@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.11.0/simple-lightbox.css" integrity="sha512-HL1y3YvMbRp23VyjlaZDXCwtM5iJ6amoDyEcjpANI6qObX9pb8B7c31UJVyesMb3LKvmS8sr6eKOFMAEaHgf+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
@@ -12,8 +13,10 @@
       <input type="text" class="search__input" placeholder="Search images...">
       <button type="submit" class="search__btn"></button>
     </form>
-    <div class="container"></div>
-
+    <div class="container">
+      <div class="gallery"></div>
+      <button type="button" class="refresh invisible"> LOAD MORE </button>
+    </div>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
