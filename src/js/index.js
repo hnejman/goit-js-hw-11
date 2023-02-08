@@ -85,7 +85,7 @@ function loadPage(id) {
     .then(r => r.json())
     .then(r => {
       if(id * 52 > r.totalHits){refresh.classList.add("invisible");}
-      if(r.totalHits=0){Notiflix.Notify.failure(`We have found ${r.totalHits} hits`);}
+      if(r.totalHits==0){Notiflix.Notify.failure(`We have found ${r.totalHits} hits`);}
       else{
         Notiflix.Notify.success(`We have found ${r.totalHits} hits`);
         render(r.hits);
