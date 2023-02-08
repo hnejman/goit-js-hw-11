@@ -33,7 +33,16 @@ body{
         background-color: rgb(212, 221, 238);
         margin: 0;
         padding: 3px;
-        height: 100%;
+        padding-bottom: 10px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        justify-content: space-around;
+        & p{
+          margin: 0;  
+        }
+    }
+    &__tag{
+        font-weight: bold;
     }
 }
 

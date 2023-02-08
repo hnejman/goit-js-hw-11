@@ -11,22 +11,11 @@ function render(r) {
     const wrapper = document.createElement('div');
     const link = document.createElement('a');
     const picture = document.createElement('img');
-    const description = document.createElement('p');
+    const description = document.createElement('div');
 
     picture.src = element.webformatURL;
     link.href = element.webformatURL;
     picture.alt = element.tags;
-    description.textContent = 
-    "likes: "+element.likes+
-    "views: "+element.views+
-    "comments: "+element.comments+
-    "downloads: "+element.downloads;
-    // tags - wiersz z opisem obrazka. Będzie pasować do atrybutu alt.
-    // likes - liczba lajków.
-    // views - liczba wyświetleń.
-    // comments - liczba komentarzy.
-    // downloads - liczba pobrań.
-
 
     card.classList.add('gallery__card');
     link.classList.add('gallery__link');
@@ -39,6 +28,44 @@ function render(r) {
     link.append(wrapper);
     wrapper.append(picture);
     card.append(description);
+
+    const tagLikes = document.createElement('p');
+    tagLikes.classList.add("gallery__tag");
+    tagLikes.textContent = "likes";
+    description.append(tagLikes);
+
+    const tagViews = document.createElement('p');
+    tagViews.classList.add("gallery__tag");
+    tagViews.textContent = "views";
+    description.append(tagViews);
+
+    const tagComments = document.createElement('p');
+    tagComments.classList.add("gallery__tag");
+    tagComments.textContent = "comments";
+    description.append(tagComments);
+
+    const tagDownoloads = document.createElement('p');
+    tagDownoloads.classList.add("gallery__tag");
+    tagDownoloads.textContent = "downloads";
+    description.append(tagDownoloads);
+
+    const contentLikes = document.createElement('p');
+    contentLikes.textContent = element.likes;
+    description.append(contentLikes);
+
+    const contentViews = document.createElement('p');
+    contentViews.textContent = element.views;
+    description.append(contentViews);
+
+
+    const contentComments = document.createElement('p');
+    contentComments.textContent = element.comments;
+    description.append(contentComments);
+
+    const contentDownloads = document.createElement('p');
+    contentDownloads.textContent = element.downloads;
+    description.append(contentDownloads);
+
   });
   const lightbox = new simpleLightbox('.container a');
   lightbox.on('error.simplelightbox', function (e) {
