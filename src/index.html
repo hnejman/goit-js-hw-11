@@ -11,11 +11,17 @@
   <body>
     <form class="search">
       <input type="text" class="search__input" placeholder="Search images...">
-      <button type="submit" class="search__btn"></button>
+      <button type="submit" class="search__btn">
+        <svg width="16" height="16">
+          <use  href="./images/icon.svg#search"></use>
+        </svg>
+      </button>
     </form>
     <div class="container">
       <div class="gallery"></div>
-      <button type="button" class="refresh invisible"> LOAD MORE </button>
+      <div class="centrify">
+        <button type="button" class="refresh invisible"> LOAD MORE </button>
+      </div>
     </div>
     <script type="module" src="./js/index.js"></script>
   </body>

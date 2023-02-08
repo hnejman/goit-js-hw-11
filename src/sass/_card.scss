@@ -3,14 +3,15 @@ body{
 }
 
 .container{
-    width: 1080px;
+    width: 1600px;
     padding: 40px 0;
     margin: auto;
+    justify-content: center;
 }
 
 .gallery{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     &__card{
     margin: 10px 10px;
     width: 340px;
@@ -44,6 +45,23 @@ body{
     &__tag{
         font-weight: bold;
     }
+}
+
+.centrify{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.refresh{
+    background-color: rgb(64, 86, 180);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: auto;
 }
 
 .invisible{

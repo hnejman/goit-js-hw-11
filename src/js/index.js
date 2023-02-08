@@ -80,10 +80,11 @@ function loadPage(id) {
   const textInpunt = document.querySelector(`.search__input`);
 
   fetch(
-    `${url}?key=${key}&q=${textInpunt.value}&image_type=photo&page=${id}&per_page=51`
+    `${url}?key=${key}&q=${textInpunt.value}&image_type=photo&page=${id}&per_page=52`
   )
     .then(r => r.json())
     .then(r => {
+      if(id * 52 > r.totalHits){refresh.classList.add("invisible");}
       render(r.hits);
       Notiflix.Notify.success(`We have found ${r.totalHits} hits`);
     })

@@ -8,9 +8,18 @@
     &__input{
         height: 30px;
         width: 250px;
+        border: none;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
     }
     &__btn{
         height: 30px;
         width: 30px;
+        background-color: rgb(212, 221, 238);
+        border: none;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 6px;
+        padding-top: 7px;
     }
 }
